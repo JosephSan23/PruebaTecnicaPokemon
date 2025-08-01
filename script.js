@@ -29,8 +29,17 @@ function resultadoBusqueda(pokemon) {
     const img = document.createElement("img");
     img.src = pokemon.sprites.front_default;
 
-    const nombre = document.createElement("span");
+    const nombre = document.createElement("h3");
     nombre.textContent = pokemon.name;
+
+    const tipos = document.createElement("p");
+    tipos.textContent = " Tipo(s): " + pokemon.types.map(t => t.type.name).join(", ");
+
+    const altura = document.createElement("p");
+    altura.textContent = "Altura: " + (pokemon.height / 10) + "m ";
+
+    const peso = document.createElement("p");
+    peso.textContent = " Peso: " + (pokemon.weight / 10) + "kg ";
 
     const btnAgregar = document.createElement("button");
     btnAgregar.textContent = "Agregar";
@@ -38,6 +47,9 @@ function resultadoBusqueda(pokemon) {
 
     carta.appendChild(img);
     carta.appendChild(nombre);
+    carta.appendChild(tipos);
+    carta.appendChild(altura);
+    carta.appendChild(peso);
     carta.appendChild(btnAgregar);
     pokemonFiltrado.appendChild(carta);
 }
@@ -59,7 +71,10 @@ function agregarAPokelist(pokemon) {
         id: pokemon.id,
         nombre: pokemon.name,
         imagen: pokemon.sprites.front_default,
-        estado: "pendiente"
+        estado: "pendiente",
+        tipos: pokemon.types.map(t => t.type.name),
+        altura: pokemon.height / 10,
+        peso: pokemon.weight / 10
     });
 
     actualizarListaCaptura();
@@ -72,16 +87,25 @@ function actualizarListaCaptura() {
     lisCaptura.innerHTML = "";
 
     listaCaptura.forEach((p) => {
-
         if (filtroActual !== "todos" && p.estado !== filtroActual) return;
+
         const item = document.createElement("li");
         item.classList.add("capture-item");
 
         const img = document.createElement("img");
         img.src = p.imagen;
 
-        const nombre = document.createElement("span");
+        const nombre = document.createElement("h4");
         nombre.textContent = p.nombre;
+
+        const tipos = document.createElement("p");
+        tipos.textContent = "Tipo(s): " + p.tipos.join(", ");
+
+        const altura = document.createElement("p");
+        altura.textContent = "Altura: " + p.altura + " m";
+
+        const peso = document.createElement("p");
+        peso.textContent = "Peso: " + p.peso + " kg";
 
         const estadoBtn = document.createElement("button");
         estadoBtn.textContent = p.estado === "capturado" ? "✔ Capturado" : "✖ Pendiente";
@@ -94,7 +118,11 @@ function actualizarListaCaptura() {
 
         item.appendChild(img);
         item.appendChild(nombre);
+        item.appendChild(tipos);
+        item.appendChild(altura);
+        item.appendChild(peso);
         item.appendChild(estadoBtn);
+
         lisCaptura.appendChild(item);
     });
 }

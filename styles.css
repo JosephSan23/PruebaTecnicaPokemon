@@ -15,6 +15,7 @@ h1,
 h2 {
     margin-bottom: 10px;
     color: #2c3e50;
+    text-align: center;
 }
 
 #buscar-seccion {
@@ -64,10 +65,26 @@ h2 {
     margin-top: 10px;
 }
 
+.pokemon-card>* {
+    display: block;
+    margin-bottom: 8px;
+}
+
 .pokemon-card img {
     width: 80px;
     height: 80px;
     margin-right: 15px;
+}
+
+.pokemon-card p {
+    margin: 4px 0;
+    color: #444;
+    font-size: 14px;
+}
+
+.pokemon-card h3 {
+    margin-bottom: 6px;
+    color: #333;
 }
 
 .pokemon-card button {
@@ -95,14 +112,16 @@ h2 {
 }
 
 .capture-item {
-    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
     border-radius: 12px;
-    padding: 10px;
-    width: 160px;
-    background-color: #f4f4f4;
+    padding: 15px;
+    margin: 10px;
+    width: 180px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
 }
 
 .capture-item:hover {
@@ -115,11 +134,13 @@ h2 {
     object-fit: contain;
 }
 
-.capture-item span {
-    display: block;
-    margin: 10px 0;
-    font-weight: bold;
-    text-transform: capitalize;
+.capture-item h4 {
+    margin: 8px 0 4px;
+}
+
+.capture-item p {
+    margin: 2px 0;
+    font-size: 14px;
 }
 
 /* Botones de estado */
