@@ -10,7 +10,7 @@ Esta es una pagina web simple que permite buscar Pokemon, agregarlos a una lista
 
 ## Tecnologias usadas
 
-- HTML, CSS y JavaScript puro (sin frameworks).
+- HTML, CSS y JavaScript, elegi estas tecnologias ya que actualmente son en las que mas tengo experiencia, lo mejor era enfocarme en lo que conozco bien para asegurar una solución clara.
 - Consumo de API pública: [PokeAPI](https://pokeapi.co).
 - `localStorage` para persistencia.
 
@@ -22,3 +22,7 @@ Esta es una pagina web simple que permite buscar Pokemon, agregarlos a una lista
 - Alternar estado capturado/pendiente.
 - Filtros de visualizacion.
 - Persistencia con `localStorage`.
+
+## Supuestos
+
+- La verdad todo el proyecto me quedo claro, habian cosas que si se me complicaron, por ejemplo el asyncronismo, un poco del manejo del DOM algunas funciones no me daban pero apunta de prueba y error y preguntar a internet lo pude lograr.
