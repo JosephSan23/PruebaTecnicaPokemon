@@ -63,6 +63,7 @@ function agregarAPokelist(pokemon) {
     });
 
     actualizarListaCaptura();
+    guardarEnLocalStorage();
     pokemonFiltrado.innerHTML = "";
 }
 
@@ -86,6 +87,7 @@ function actualizarListaCaptura() {
         estadoBtn.onclick = () => {
             p.estado = p.estado === "capturado" ? "pendiente" : "capturado";
             actualizarListaCaptura();
+            guardarEnLocalStorage();
         };
 
         item.appendChild(img);
@@ -100,5 +102,18 @@ clicBoton.addEventListener("click", () => {
     const nombre = ingresarPokemon.value.trim();
     if (nombre) {
         buscarPokemon(nombre);
+    }
+});
+
+//local storage
+function guardarEnLocalStorage() {
+    localStorage.setItem("listaCaptura", JSON.stringify(listaCaptura));
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+    const guardada = localStorage.getItem("listaCaptura");
+    if (guardada) {
+        listaCaptura = JSON.parse(guardada);
+        actualizarListaCaptura();
     }
 });
