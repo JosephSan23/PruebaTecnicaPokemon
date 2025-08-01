@@ -150,3 +150,25 @@ h2 {
 .btn-pendiente:hover {
     background-color: #e53935;
 }
+
+#filtros {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+#filtros button {
+    margin: 0 8px;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#filtros button:hover {
+    background-color: #1976d2;
+}

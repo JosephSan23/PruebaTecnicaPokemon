@@ -72,6 +72,8 @@ function actualizarListaCaptura() {
     lisCaptura.innerHTML = "";
 
     listaCaptura.forEach((p) => {
+
+        if (filtroActual !== "todos" && p.estado !== filtroActual) return;
         const item = document.createElement("li");
         item.classList.add("capture-item");
 
@@ -114,6 +116,15 @@ window.addEventListener("DOMContentLoaded", () => {
     const guardada = localStorage.getItem("listaCaptura");
     if (guardada) {
         listaCaptura = JSON.parse(guardada);
+        actualizarListaCaptura();
+    }
+});
+
+let filtroActual = "todos";
+
+document.getElementById("filtros").addEventListener("click", (e) => {
+    if (e.target.tagName === "BUTTON") {
+        filtroActual = e.target.dataset.filtro;
         actualizarListaCaptura();
     }
 });
